@@ -1,0 +1,75 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8001
+#mybatis配置
+mybatis:
+  type-aliases-package: cn.itcast.springcloud.pojo
+  #config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration: 
+    map-undersorce-to-camel-case: true
+
+#spring配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-config-dept
+  datasource:
+    #数据源基本配置
+    username: root
+    password: winnie520
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.234.227.226:3306/DB01
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#Eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8001 #修改eureka上默认描述信息
+
+#监控信息，info配置
+info:
+  app.name: winnie-springcloud
+  company.name: lovewinnie.com
+---
+server:
+  port: 8001
+#mybatis配置
+mybatis:
+  type-aliases-package: cn.itcast.springcloud.pojo
+  #config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration: 
+    map-undersorce-to-camel-case: true
+
+#spring配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-config-dept
+  datasource:
+    #数据源基本配置
+    username: root
+    password: winnie520
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.234.227.226:3306/DB02
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#Eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8001 # 修改eureka上默认描述信息
+
+#监控信息，info配置
+info:
+  app.name: winnie-springcloud
+  company.name: lovewinnie.com
