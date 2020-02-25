@@ -17,9 +17,9 @@ eureka:
     register-with-eureka: false  #表示是否向注册中心注册自己(集群需要注册，单机不需要)
     fetch-register: false  #不从eureka上获取服务的注册信息
     service-url:
-    # 单机： defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #注册中心服务注册的地址
+       defaultZone: http://localhost:${server.port}/eureka/ #注册中心服务注册的地址
     # 集群(关联)
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    #  defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
 ---
 server:
   port: 7001
@@ -36,6 +36,6 @@ eureka:
     register-with-eureka: false  #表示是否向注册中心注册自己(集群需要注册，单机不需要)
     fetch-register: false  #不从eureka上获取服务的注册信息
     service-url:
-    # 单机： defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #注册中心服务注册的地址
+       defaultZone: http://localhost:${server.port}/eureka/ #注册中心服务注册的地址
     # 集群(关联)
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      # defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
